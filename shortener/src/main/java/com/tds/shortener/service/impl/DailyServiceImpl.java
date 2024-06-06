@@ -2,7 +2,10 @@ package com.tds.shortener.service.impl;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,10 +43,28 @@ public class DailyServiceImpl implements DailyService  {
         urlRepository.save(urlFetched);
     }
 
+
     @Override
-    public boolean findByShortUrl(String url) {
+    public Map<String, Object> getAccessStats(String url) {
+
         Optional<url> optionalUrl = urlRepository.findByShortUrl(url);
-        return optionalUrl.isPresent();
+        url urlFetched = optionalUrl.get();
+
+        int totalSum = urlFetched.getAccessStats().stream().mapToInt(DailyAccess::getCount).sum();
+
+        Map<String, Integer> accessStatsMap = urlFetched.getAccessStats().stream()
+        .collect(Collectors.toMap(DailyAccess::getDate, DailyAccess::getCount));
+
+        Map<String, Object> resultMap = new HashMap<>();
+
+        resultMap.put("Média por dia", totalSum / optionalUrl.get().getAccessStats().size());
+        resultMap.put("Total", totalSum);
+        resultMap.put("Total por dia", accessStatsMap);
+        resultMap.put("ID", optionalUrl.get().getId());
+
+        
+        return resultMap;
     }
+
 
 }

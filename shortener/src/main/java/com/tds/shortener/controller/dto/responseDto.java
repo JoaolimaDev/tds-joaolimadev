@@ -1,7 +1,9 @@
 package com.tds.shortener.controller.dto;
 
-import com.tds.shortener.model.url;
+import java.util.List;
 
-public record responseDto(int httpStatus, url responseBody) {
+
+@SuppressWarnings("rawtypes")
+public record responseDto(int httpStatus, List responseBody) {
     
 }

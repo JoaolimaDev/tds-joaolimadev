@@ -5,3 +5,8 @@ spring:
   data:
     mongodb:
       uri: mongodb://root:root@localhost:27017/urlshortener?authSource=admin
+
+springdoc:
+  swagger-ui:
+    deep-linking: true
+
