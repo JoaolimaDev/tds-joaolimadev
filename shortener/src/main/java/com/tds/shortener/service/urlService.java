@@ -1,25 +1,12 @@
 package com.tds.shortener.service;
 
-import java.time.LocalDateTime;
+import com.tds.shortener.controller.dto.createDto;
+import com.tds.shortener.model.url;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.tds.shortener.model.Url;
-import com.tds.shortener.repository.UrlRepository;
-
-@Service
-public class urlService {
-
-    @Autowired
-    private UrlRepository urlRepository;
-
-    public Url createUrl() {
-        Url url = new Url();
-        url.setOriginalUrl("sds");
-        url.setShortUrl("teste");
-        url.setCreationDate(LocalDateTime.now());
-        return urlRepository.save(url);
-    }
+public interface urlService {
     
+    public url createUrl(createDto dto);
+    public String shortUrl();
+    public void redirect();
+
 }

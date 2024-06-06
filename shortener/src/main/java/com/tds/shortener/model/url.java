@@ -12,13 +12,12 @@ import lombok.Data;
 
 @Data
 @Document(collection = "urls")
-public class Url {
+public class url {
     
     @Id
     private String id;
     private String originalUrl;
     private String shortUrl;
-    private LocalDateTime creationDate;
+    private String creationDate;
     private List<DailyAccess> accessStats = new ArrayList<>();
-
 }
