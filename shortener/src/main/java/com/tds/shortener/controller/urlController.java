@@ -32,7 +32,7 @@ public class urlController {
     }
 
     @GetMapping("/urls")
-    public void updateAccessStats(@RequestParam String url) {
+    public void updateAccessStats(@RequestParam createDto dto) {
         
         
     }
