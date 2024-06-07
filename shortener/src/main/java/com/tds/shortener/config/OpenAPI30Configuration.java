@@ -12,7 +12,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @OpenAPIDefinition(
   info =@Info(
     title = "desafio-de-back-end-encurtador-de-url",
-    version = "1.0",
+    version = "1.3",
     contact = @Contact(
       name = "João vitor de lima", email = "joaolimaprofissional@hotmail.com", url = "https://github.com/JoaolimaDev"
     ),
