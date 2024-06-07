@@ -17,6 +17,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Maven para gerenciamento de pacotes
 - Java 17.0 +
+- Docker version 26+
 - docker-compose up --build
 
 ## ☕  Swagger disponível :
