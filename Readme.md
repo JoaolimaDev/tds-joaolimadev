@@ -10,6 +10,8 @@
 - [x] Acessar URL encurtada
 - [x] Visualizando estatísticas
 - [x] Testes de integração
+- [x] Swagger
+
 
 ## 💻 Pré-requisitos
 
