@@ -11,4 +11,6 @@ import com.tds.shortener.model.url;
 public interface UrlRepository extends MongoRepository<url, String> {
     
     Optional<url> findByShortUrl(String shortUrl);
+
+ 
 }

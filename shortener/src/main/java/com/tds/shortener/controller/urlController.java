@@ -72,7 +72,7 @@ public class urlController implements inputConfig {
         return ResponseEntity.status(HttpStatus.OK).body(new responseDto(HttpStatus.OK.value(),listUrls));
     }
 
-    @Operation(summary = "Lista urls por nome")
+    @Operation(summary = "Lista urls por nome", description = "o campo (url) deverá ser preenchido com a url encurtada.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Lista urls por nome", 
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = responseDto.class))),
@@ -92,7 +92,8 @@ public class urlController implements inputConfig {
         return ResponseEntity.status(HttpStatus.OK).body(new responseDto(HttpStatus.OK.value(),listUrls));
     }
 
-    @Operation(summary = "Redirecionamento")
+    @Operation(summary = "Redirecionamento", 
+    description = "O springdoc-openapi-starter-webmvc-ui não suporta redirecionamentos, utilizando a url da requizição em browzer ou postman a função ocorrerá normalmente, campo (Request URL), logo abaixo da requisição realizada")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "302", description = "Redireciona para url cadastrada"),
         @ApiResponse(responseCode = "400", description = "O input url deve conter https: e .com !", 
@@ -112,7 +113,7 @@ public class urlController implements inputConfig {
         urlService.redirect(url, response);
     }
 
-    @Operation(summary = "estátistica de acesso")
+    @Operation(summary = "estátistica de acesso", description = "o campo (url) deverá ser preenchido com a url encurtada.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Retorno das estátistica", 
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = responseDto.class))),

@@ -57,7 +57,12 @@ public class DailyServiceImpl implements DailyService  {
 
         Map<String, Object> resultMap = new HashMap<>();
 
-        resultMap.put("Média por dia", totalSum / optionalUrl.get().getAccessStats().size());
+        int accessStatsSize = urlFetched.getAccessStats().size();
+        if (accessStatsSize == 0) {
+            accessStatsSize = 1;
+        }
+
+        resultMap.put("Média por dia", totalSum / accessStatsSize);
         resultMap.put("Total", totalSum);
         resultMap.put("Total por dia", accessStatsMap);
         resultMap.put("ID", optionalUrl.get().getId());
