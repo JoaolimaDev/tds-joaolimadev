@@ -9,6 +9,7 @@
 - [x] Cadastrar URL
 - [x] Acessar URL encurtada
 - [x] Visualizando estatísticas
+- [x] Testes de integração
 
 ## 💻 Pré-requisitos
 
